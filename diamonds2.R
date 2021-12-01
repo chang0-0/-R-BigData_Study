@@ -23,10 +23,9 @@ print(result)
 
 # 다른 방법
 
-# 80%데이터를 제거
+# 80%데이터를 제거 -c를 사용하지 않는 다른 방법
 diamonds_0.8 <- nrow(diamonds) * 0.8
 train <- diamonds[ c( (diamonds_0.8+1): nrow(diamonds)),]
-
 
 nrow <- dim(ds)[1] * 0.8
 nrow
