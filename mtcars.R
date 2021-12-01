@@ -14,5 +14,4 @@ total
 
 a <- cnt4/total
 print(a)
-
 print(a[1])
