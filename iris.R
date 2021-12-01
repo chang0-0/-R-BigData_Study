@@ -2,5 +2,7 @@ library(dplyr)
 data(iris)
 ds <- iris
 
-ds_length <- ds %>% select(ds$Sepal.Length)
-print(ds_length)
+mean_len <- mean(ds$Sepal.Length)
+mean_wid <- mean(ds$Sepal.Width)
+
+print(mean_len + mean_wid)
