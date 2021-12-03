@@ -1,7 +1,5 @@
 library(dplyr)
 
-setwd("C://Users//Samsung//Desktop//빅분기 실기 준비//Covid19_TimeAge")
-list.files()
 df <- read.csv("./TimeAge.csv")
 
 summary(df)
