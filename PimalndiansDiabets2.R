@@ -53,12 +53,13 @@ ds3 <- transform(ds3, age = ifelse(age >= 20 & age <= 40, 3, ifelse(age >= 41 & 
 
 # 나이를 그룹화하여 범주화 시킨 컬럼 새로추가
 ds3 <- ds3 %>% mutate(age_grp = ifelse(age >= 60, "3", ifelse(age >= 41, "2","1")))
-head(ds3)
+summary(ds3)
 
 # 발병률이 가장 높은 나이 그룹의 발병률을 구하시오.
-
+# mutate는 데이터를 덮어쓰거나 새로운 컬럼을 추가할때 사용하는 함수.
+# group_by와 summarise는 tibble형태로 값을 반환함
 sum_ds3 <- ds3 %>% group_by(age_grp) %>% summarise(total_num = n(), diab_num = sum(diabetes == "pos"), 
 ill_rate = diab_num/total_num) %>% arrange(desc(ill_rate))
 
-result <- head(sum_ds3$ill_rate, 1)
+result <- max(sum_ds3$ill_rate)
 print(result)
