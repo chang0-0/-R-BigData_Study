@@ -38,9 +38,27 @@ library(mlbench)
 data(PimaIndiansDiabetes2)
 ds <- PimaIndiansDiabetes2
 
-
 summary(ds)
 
 # 결측값이 없는 데이터 세트로 만들기
+# 결측치가 없는 행만 반환
 ds2 <- ds[complete.cases(ds),]
 print(ds2)
+
+# 특정 컬럼의 결측값을 제외하고 가져오기
+ds3 <- ds %>% filter(!is.na(glucose & pressure & mass))
+colSums(is.na(ds3))
+
+ds3 <- transform(ds3, age = ifelse(age >= 20 & age <= 40, 3, ifelse(age >= 41 & age <= 60, 2, ifelse(age >= 61, 1))))
+
+# 나이를 그룹화하여 범주화 시킨 컬럼 새로추가
+ds3 <- ds3 %>% mutate(age_grp = ifelse(age >= 60, "3", ifelse(age >= 41, "2","1")))
+head(ds3)
+
+# 발병률이 가장 높은 나이 그룹의 발병률을 구하시오.
+
+sum_ds3 <- ds3 %>% group_by(age_grp) %>% summarise(total_num = n(), diab_num = sum(diabetes == "pos"), 
+ill_rate = diab_num/total_num) %>% arrange(desc(ill_rate))
+
+result <- head(sum_ds3$ill_rate, 1)
+print(result)
