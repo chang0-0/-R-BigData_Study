@@ -30,3 +30,6 @@ summary(ds2)
 sum_ds2 <- ds2 %>% group_by(age_grp) %>% summarise(total_num = n(), sum(diabetes == "pos"), ill_rate = diab_num/total_num) %>% arrange(desc(ill_rate))
 result <- head(sum_ds2$ill_rate, 1)
 print(result)
+
+
+#---------------------------------------------------------------------------

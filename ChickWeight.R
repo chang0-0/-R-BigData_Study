@@ -30,3 +30,22 @@ result <- ds %>% filter(sc_weight >= 0.5) %>% nrow()
 nrow(ds$sc_weight)
 
 print(result)
+
+#-----------------------------------------
+library(dplyr)
+library(MASS)
+data(ChickWeight)
+ds <- ChickWeight
+
+# 데이터 정규화
+normalize <- function(x) {
+    return ((x - min(x)) / (max(x) - min(x)))
+}
+
+ds$weight <- normalize(ds$weight)
+print(ds$weight)
+
+head(ds, n=20)
+
+result <- ds %>% filter(weigth >= 0.5) %>% nrow()
+print(result)

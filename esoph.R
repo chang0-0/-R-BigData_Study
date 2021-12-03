@@ -11,3 +11,8 @@ tail(df)
 
 nsums_tab <- xtabs(nsums ~ alcgp + tobgp, data = df)
 print(nsums_tab)
+
+chi <- chisq.test(nsums_tab)
+print(chi)
+result <- chi$statistic
+print(result)
