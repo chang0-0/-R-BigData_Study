@@ -10,3 +10,5 @@ ds <- na.omit(ds)
 
 library(caret)
 idx <- createDataPartition(ds$Churn, p = 0.8)
+
+x_train <- ds[idx$Resample1, ]

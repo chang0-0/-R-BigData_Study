@@ -1,4 +1,4 @@
-install.packages("MASS")
+
 library("MASS")
 ds <- ChickWeight
 summary(ds)

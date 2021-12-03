@@ -11,3 +11,4 @@ ds2 <- ds %>% filter(damage >= 1)
 
 result <- cor(ds2$temp, ds2$damage, method = "pearson")
 print(result)
+

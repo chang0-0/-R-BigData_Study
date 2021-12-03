@@ -11,3 +11,6 @@ rank3 <- datas_point[3, ]
 print(rank3)
 
 datas %>% filter(datas_point >= rank3) %>% select(country_abrv)
+v_mean <- datas %>% filter(country_abrv %in% c('GER', 'ITA', 'SUI')) %>%
+    summarise(mean = mean(total_points, na.rm=TRUE))
+print(v_mean)
