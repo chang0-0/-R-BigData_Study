@@ -1,14 +1,13 @@
-ds <- esoph
-summary(ds)
+library(dplyr)
 
-ds$nsums <- ds$ncases + ds$ncontrols
+data(esoph)
+df <- esoph
 
-tail(ds)
+summary(df)
 
-nsums_tab <- xtabs(nsums ~ alcgp + tobgp, data = ds)
-nsums_tab
+# 환자 수와 대조군 수를 합한 새로운 컬럼인 관측자 수를 생성
+df$nsums <- df$ncases + df$ncontrols
+tail(df)
 
-chi <- chisq.test(nsums_tab)
-result <- chi$statistic
-print(result)
-
+nsums_tab <- xtabs(nsums ~ alcgp + tobgp, data = df)
+print(nsums_tab)

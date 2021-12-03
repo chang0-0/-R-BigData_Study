@@ -10,14 +10,5 @@ colSums(is.na(df))
 
 # 전체 데이터를 분리.  0.7은 train, 0.3은 test
 
-df_70 <- nrow(df) * 0.7
-df_30 <- nrow(df) * 0.3
-
-train_set <- df[1:df_70,]
-test_set <- df[df_70+1:df_70+df_30, ]
-
-head(train_set)
-head(test_set)
-
-summary(train_set)
-summary(test_set)
+dt_loan <- df %>% mutate(Loan_ID = factor(Loan_ID), loan_status = factor(ifelse(loan_status == "PAIDOFF", "Success", "Failure"), levels = c("Success", "Failure")),effective_data = factor(effective_date), due_data = factor(due_date), 
++ paid_off_time = factor()))
