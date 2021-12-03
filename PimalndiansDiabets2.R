@@ -33,3 +33,14 @@ print(result)
 
 
 #---------------------------------------------------------------------------
+
+library(mlbench)
+data(PimaIndiansDiabetes2)
+ds <- PimaIndiansDiabetes2
+
+
+summary(ds)
+
+# 결측값이 없는 데이터 세트로 만들기
+ds2 <- ds[complete.cases(ds),]
+print(ds2)
