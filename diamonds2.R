@@ -5,6 +5,10 @@ data(diamonds)
 ds <- diamonds
 summary(ds)
 str(ds)
+
+ds <- as.data.frame(ds)
+
+
  
 # 80%데이터를 제거
 sn <- sample(1: nrow(ds), size = nrow(ds)*0.8)
@@ -15,7 +19,6 @@ print(train)
 summary(test)
 
 dim(test)
-
 
 test_filter <- test %>% filter(cut == "Fair" & caret >= 1)
 result <- max(test_filter$price)
@@ -36,3 +39,5 @@ dim(ds2)
 ds2_filter <- ds2 %>% filter(cut == "Fair" & caret >= 1)
 result <- max(ds2_filter$price)
 print(result)
+
+

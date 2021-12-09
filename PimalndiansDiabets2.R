@@ -38,12 +38,12 @@ library(mlbench)
 data(PimaIndiansDiabetes2)
 ds <- PimaIndiansDiabetes2
 
-summary(ds)
+colSums(is.na(ds))
 
 # 결측값이 없는 데이터 세트로 만들기
 # 결측치가 없는 행만 반환
 ds2 <- ds[complete.cases(ds),]
-print(ds2)
+colSums(is.na(ds2))
 
 # 특정 컬럼의 결측값을 제외하고 가져오기
 ds3 <- ds %>% filter(!is.na(glucose & pressure & mass))
@@ -63,3 +63,11 @@ ill_rate = diab_num/total_num) %>% arrange(desc(ill_rate))
 
 result <- max(sum_ds3$ill_rate)
 print(result)
+
+#mass컬럼의 중앙값
+mass_median <- median(ds$mass, na.rm=TRUE)
+print(mass_median)
+
+#mass컬럼의 결측값을 중앙값으로 대체
+ds_mass_median <- ds %>% mutate(mass = ifelse(is.na(mass), mass_median, mass) & pressure = ifelse(is.na(pressure), mass_median, pressure) 
+colSums(is.na(ds_mass_median))

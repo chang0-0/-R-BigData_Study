@@ -20,5 +20,4 @@ df2_mean <- mean(df2$Luggage.room)
 print(df2_mean - df_mean)
 
 # 책에서 나온 결측값 대체 방법
-tdf$Luggage.room[is.na(Cars93$Luggage.room)] <- median(df$Luggage.room, na.rm=TRUE)
-
+df$Luggage.room[is.na(Cars93$Luggage.room)] <- median(df$Luggage.room, na.rm=TRUE)
