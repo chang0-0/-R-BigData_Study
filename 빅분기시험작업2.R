@@ -1,14 +1,12 @@
 options(scipen = 1000)
 
-library(dplyr) ; library(caret) ; library(randomForest) ; library(pROC)
+library(dplyr); library(caret); library(randomForest); library(pROC)
 
 # 데이터 불러오기
 
 X_test = read.csv('data/X_test.csv') 
 X_train = read.csv('data/X_train.csv') 
 y_train = read.csv('data/y_train.csv')
-
-​
 
 # 데이터 확인
 

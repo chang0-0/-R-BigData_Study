@@ -8,10 +8,11 @@ str(ds)
 
 ds <- as.data.frame(ds)
 
-
  
 # 80%데이터를 제거
 sn <- sample(1: nrow(ds), size = nrow(ds)*0.8)
+print(sn)
+
 train <- ds[sn, ]
 test <- ds[-sn, ]
 

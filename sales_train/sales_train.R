@@ -1,14 +1,12 @@
 library(dplyr)
 library(readcsv)
-install.packages("readxl")
 
 csv_data <- read.csv("./sales_train_v2.csv", header = T, fileEncoding="UTF-8-BOM")
 summary(csv_data)
 
 # 그룹별 행의 갯수 세기 -> summarise(n = n()) OR tally()
 dt_cnt <- csv_data %>% group_by(item_id) %>% tally())
-    test <- csv_data %>% group_by(item_id)
-print(test)
+test <- csv_data %>% group_by(item_id)
 
 test2 <- csv_data %>% tally()
 print(test2)
