@@ -16,8 +16,11 @@ result <- mean(over80$crim)
 print(result)
 
 
-# 2번 
+# 2번
+library(MASS)
+data(Boston)
 idx <- sample( x = c("train", "test"), size=nrow(Boston), replace = TRUE, prob = c(0.8, 0.2))
+idx
 
 ds_train <- Boston[idx == "train", ]
 ds_test <- Boston[idx == "test", ]

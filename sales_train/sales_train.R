@@ -1,12 +1,17 @@
 library(dplyr)
 library(readcsv)
 
-csv_data <- read.csv("./sales_train_v2.csv", header = T, fileEncoding="UTF-8-BOM")
+getwd()
+setwd("C:\\Users\\Samsung\\Desktop\\빅분기실기준비\\sales_train")
+list.files()
+csv_data <- read.csv("./sales_train_v2.csv", header = T)
 summary(csv_data)
 
 # 그룹별 행의 갯수 세기 -> summarise(n = n()) OR tally()
-dt_cnt <- csv_data %>% group_by(item_id) %>% tally())
+dt_cnt <- csv_data %>% group_by(item_id) %>% tally()
+print(dt_cnt)
 test <- csv_data %>% group_by(item_id)
+test
 
 test2 <- csv_data %>% tally()
 print(test2)

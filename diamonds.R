@@ -4,8 +4,13 @@ library(dplyr)
 # test 데이터 추출방법 1.
 data(diamonds)
 ds <- diamonds
+ds <- as.data.frame(ds)
+ds
 
+# dim함수는 행 열의 갯수를 모두 출력한다.
+dim(ds)
 nrow <- dim(ds)[1] * 0.8
+
 ds_train <- ds[c(1:nrow),]
 
 srt <- ds_train %>% arrange(desc(price))
