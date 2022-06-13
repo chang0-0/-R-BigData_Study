@@ -1,23 +1,20 @@
 library(dplyr)
+setwd("C:/Users/Samsung/Desktop/빅분기실기준비/Covid19_TimeAge")
 
-df <- read.csv("./TimeAge.csv")
+ds <- read.csv("TimeAge.csv")
 
-summary(df)
-head(df)
+summary(ds)
+head(ds)
+
 
 # 항상 결측값이 있는지 먼저 확인
-colSums(is.na(df))
+colSums(is.na(ds))
 
+# 20대인 확진자 confirmed의 평균
+str(ds)
 
-# 연령(age)가 20대(20s)인 확진자(confirmes)의 평균과 
-# 50대(50s)인 확진자(confirmed) 평균의 차이를 구하시오.
+c20 <- ds %>% filter(age == "20s")
+mean(c20$confirmed)
 
-con_20 <- df %>% filter(age == "20s") 
-con_20_mean <- mean(con_20$confirmed)
-print(con_20_mean)
-
-con_50 <- df %>% filter(age == "50s") 
-con_50_mean <- mean(con_50$confirmed)
-print(con_50_mean)
-
-print(abs(con_20_mean - con_50_mean))
+c50 <- ds %>% filter(age == "50s")
+mean(c50$confirmed)
