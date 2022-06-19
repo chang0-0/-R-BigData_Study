@@ -140,9 +140,7 @@ write.csv(
 )
 
 
-
 # svm
-
 set.seed(2108)
 final2 <- e1071::svm(
     loan_status ~ . - Loan_ID,
